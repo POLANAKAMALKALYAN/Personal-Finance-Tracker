@@ -9,7 +9,7 @@ const Reports = () => {
     useEffect(() => {
         const fetchTransactions = async () => {
             try {
-                const res = await api.get('/transactions');
+                const res = await api.get('/api/transactions');
                 setTransactions(res.data.data);
             } catch (err) {
                 console.error(err);

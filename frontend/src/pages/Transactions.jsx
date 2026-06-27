@@ -22,7 +22,7 @@ const Transactions = () => {
 
     const fetchTransactions = async () => {
         try {
-            const res = await api.get('/transactions');
+            const res = await api.get('/api/transactions');
             setTransactions(res.data.data);
         } catch (err) {
             console.error(err);
@@ -77,7 +77,7 @@ const Transactions = () => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this transaction?')) {
             try {
-                await api.delete(`/transactions/${id}`);
+                await api.delete(`/api/transactions/${id}`);
                 fetchTransactions();
             } catch (err) {
                 console.error(err);
