@@ -43,9 +43,9 @@ const Transactions = () => {
         e.preventDefault();
         try {
             if (editingId) {
-                await api.put(`/transactions/${editingId}`, formData);
+                await api.put(`/api/transactions/${editingId}`, formData);
             } else {
-                await api.post('/transactions', formData);
+                await api.post('/api/transactions', formData);
             }
             setShowModal(false);
             setEditingId(null);
