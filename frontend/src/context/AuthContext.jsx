@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = async (email, password) => {
+        console.log(import.meta.env.VITE_API_URL); // 👈 ADD HERE
         const res = await api.post('api/auth/login', { email, password });
         localStorage.setItem('token', res.data.token);
         setUser(res.data.user);
