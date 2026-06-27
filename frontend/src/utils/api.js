@@ -1,10 +1,11 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: `${import.meta.env.VITE_API_URL}/api`,
+    //baseURL: 'http://localhost:5000/api',
     headers: {
-        'Content-Type': 'application/json',
-    },
+    baseURL: 'https://personal-finance-tracker-xg25.onrender.com/api', 
+        'Content-Type': 'application/json'
+    }
 });
 
 // Add a request interceptor to attach JWT token
@@ -16,7 +17,9 @@ api.interceptors.request.use(
         }
         return config;
     },
-    (error) => Promise.reject(error)
+    (error) => {
+        return Promise.reject(error);
+    }
 );
 
 export default api;
